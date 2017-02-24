@@ -16,6 +16,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.SQLite;
+using System.IO;
 
 namespace WpfApplication2
 {
@@ -24,8 +26,11 @@ namespace WpfApplication2
     /// </summary>
     public partial class MainWindow : Window
     {
+        SQLiteConnection dbManager;
+
         public MainWindow()
         {
+            connectDb();
             InitializeComponent();
         }
 
@@ -55,7 +60,12 @@ namespace WpfApplication2
 
         private void calPrice_Click(object sender, RoutedEventArgs e)
         {
+            payPrice.Text = calculatePrice().ToString();
+        }
 
+        private int calculatePrice()
+        {
+            int calculatePrice = 0;
             try
             {
                 int ihvArea = int.Parse(hvArea.Text);
@@ -64,12 +74,77 @@ namespace WpfApplication2
                 int ibhPriceHours = int.Parse(bhPriceHours.Text);
                 int itrNum = int.Parse(trNum.Text);
                 int itrPriceNum = int.Parse(trPriceNum.Text);
-                payPrice.Text = ((ihvArea * ihvPriceArea) + (ibhHours * ibhPriceHours) + (itrNum * itrPriceNum)).ToString();
+                calculatePrice = ((ihvArea * ihvPriceArea) + (ibhHours * ibhPriceHours) + (itrNum * itrPriceNum));
+
             } catch (FormatException ex)
             {
                 MessageBox.Show("กรุณากรอกข้อมูลที่ถูกต้อง", "ผิดพลาด", MessageBoxButton.OK, MessageBoxImage.Warning);
                 payPrice.Clear();
             }
+            return calculatePrice;
+        }
+
+
+        private void connectDb()
+        {
+            //Initial
+            if (!File.Exists("db.sqlite"))
+            {
+                SQLiteConnection.CreateFile("db.sqlite");
+            }
+            dbManager = new SQLiteConnection("Data Source=db.sqlite;Version=3;");
+            dbManager.Open();
+            string sql = "create table if not exists records (ctId varchar(255),ctName varchar(255),ctPhone varchar(255),ctAddress varchar(255),dateOp int, hvName varchar(255),hvArea int,hvPriceArea int, bhName varchar(255), bhHours int, bhPriceHours int, trName varchar(255), trNum int, trPriceNum int, price int, pay int)";
+            SQLiteCommand command = new SQLiteCommand(sql, dbManager);
+            command.ExecuteNonQuery();
+        }
+
+        private void addRecord_Click(object sender, RoutedEventArgs e)
+        {
+            //validate field
+            if (calculatePrice() < 1) { return; }
+            if(dateOp.Text.Length<1) { MessageBox.Show("กรุณาตรวจสอบวันที่", "ผิดพลาด", MessageBoxButton.OK, MessageBoxImage.Warning); return; }
+
+            try
+            {
+                int paid = 0;
+                if (payPartly.IsChecked.Value) { int.TryParse(payPartlyPrice.Text, out paid); }
+                if (payFull.IsChecked.Value) { int.TryParse(payPrice.Text, out paid); }
+                string sql = genInsertSql(new String[] { ctId.Text, ctName.Text, ctPhone.Text, ctAddress.Text, dateOp.Text, hvName.Text, hvArea.Text, hvPriceArea.Text, bhName.Text, bhHours.Text, bhPriceHours.Text, trName.Text, trNum.Text, trPriceNum.Text, payPrice.Text, paid.ToString() });
+                SQLiteCommand command = new SQLiteCommand(sql, dbManager);
+                command.ExecuteNonQuery();
+                MessageBox.Show("บันทึกข้อมูลของสมาชิก "+ ctId.Text + " : "+ ctName.Text +" เรียบร้อยแล้ว", "สำเร็จ", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (SQLiteException ex)
+            {
+                MessageBox.Show("กรุณากรอกข้อมูลที่ถูกต้อง", "ผิดพลาด", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        private String genInsertSql(String[] str)
+        {
+            String init = "insert into records (ctId, ctName, ctPhone, ctAddress, dateOp, hvName, hvArea, hvPriceArea, bhName, bhHours, bhPriceHours, trName, trNum , trPriceNum, price, pay) values (";
+            foreach(String element in str)
+            {
+                int tryParse = 0;
+                if (int.TryParse(element, out tryParse))
+                {
+                    init += element + ",";
+                }
+                else
+                {
+                    init += "\"" + element + "\",";
+                }
+            }
+            init = (init.Remove(init.Length - 1)) + ")";
+
+            return init;
+        }
+
+        private void searchRecord_Click(object sender, RoutedEventArgs e)
+        {
+            SearchWindow sw = new SearchWindow(dbManager);
+            sw.Show();
         }
     }
 }

@@ -22,3 +22,5 @@ c:\users\aorjoa\documents\visual studio 2015\Projects\WpfApplication2\WpfApplica
 c:\users\aorjoa\documents\visual studio 2015\Projects\WpfApplication2\WpfApplication2\bin\Debug\System.Data.SQLite.xml
 c:\users\aorjoa\documents\visual studio 2015\Projects\WpfApplication2\WpfApplication2\obj\Debug\Simple Styles.baml
 c:\users\aorjoa\documents\visual studio 2015\Projects\WpfApplication2\WpfApplication2\obj\Debug\App.baml
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\WpfApplication2\WpfApplication2\obj\Debug\SearchWindow.g.cs
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\WpfApplication2\WpfApplication2\obj\Debug\SearchWindow.baml

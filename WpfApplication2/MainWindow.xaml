@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="ระบบจัดการรถ" Height="511.5" Width="594" ResizeMode="CanMinimize">
     <Canvas Margin="0,0,0,-0.5" HorizontalAlignment="Right" Width="585">
-        <Button x:Name="button" Content="เพิ่มข้อมูล" Canvas.Left="459.031" Canvas.Top="164.207" Width="107" Height="61.96" Panel.ZIndex="17"/>
-        <Button x:Name="button1" Content="ค้นหาข้อมูล" Canvas.Left="459.364" Canvas.Top="235.54" Width="107" Height="56.96" Panel.ZIndex="18"/>
+        <Button x:Name="addRecord" Content="เพิ่มข้อมูล" Canvas.Left="459.031" Canvas.Top="164.207" Width="107" Height="61.96" Panel.ZIndex="17" Click="addRecord_Click"/>
+        <Button x:Name="searchRecord" Content="ค้นหาข้อมูล" Canvas.Left="459.364" Canvas.Top="235.54" Width="107" Height="56.96" Panel.ZIndex="18" Click="searchRecord_Click"/>
         <GroupBox x:Name="groupBox" Header="รถเกี่ยว" Canvas.Left="24" Canvas.Top="156" Height="79.96" Width="403.364">
             <Canvas Margin="-4.333,1.667,-4.969,-6.627"/>
         </GroupBox>
