@@ -7,11 +7,9 @@
         mc:Ignorable="d"
         Title="ระบบจัดการรถ" Height="511.5" Width="594" ResizeMode="CanMinimize">
     <Canvas Margin="0,0,0,-0.5" HorizontalAlignment="Right" Width="585">
-        <Button x:Name="addRecord" Content="เพิ่มข้อมูล" Canvas.Left="459.031" Canvas.Top="164.207" Width="107" Height="61.96" Panel.ZIndex="17" Click="addRecord_Click"/>
-        <Button x:Name="searchRecord" Content="ค้นหาข้อมูล" Canvas.Left="459.364" Canvas.Top="235.54" Width="107" Height="56.96" Panel.ZIndex="18" Click="searchRecord_Click"/>
-        <GroupBox x:Name="groupBox" Header="รถเกี่ยว" Canvas.Left="24" Canvas.Top="156" Height="79.96" Width="403.364">
-            <Canvas Margin="-4.333,1.667,-4.969,-6.627"/>
-        </GroupBox>
+        <Button x:Name="addRecord" Content="เพิ่มข้อมูล" Canvas.Left="459.031" Canvas.Top="164.207" Width="107" Height="61.96" Panel.ZIndex="17" Click="addRecord_Click" IsEnabled="False"/>
+        <Button x:Name="searchRecord" Content="ค้นหาข้อมูล" Canvas.Left="459.364" Canvas.Top="235.54" Width="107" Height="56.96" Panel.ZIndex="18" Click="searchRecord_Click" IsEnabled="False"/>
+        <GroupBox x:Name="groupBox" Header="รถเกี่ยว" Canvas.Left="24" Canvas.Top="156" Height="79.96" Width="403.364"/>
         <GroupBox x:Name="groupBox1" Header="แบคโฮ" Canvas.Left="24.5" Canvas.Top="246" Width="275.864" Height="106.46"/>
         <GroupBox x:Name="groupBox1_Copy" Header="สิบล้อ" Canvas.Left="22" Canvas.Top="360.5" Width="278.364" Height="96.96"/>
         <GroupBox x:Name="groupBox_Copy" Header="ข้อมูลลูกค้า" Canvas.Left="25.333" Canvas.Top="22.334" Height="124.96" Width="541.031">
@@ -101,5 +99,18 @@
                 <Button x:Name="calPrice" Content="$" HorizontalAlignment="Right" Width="41.5" Margin="0,2,0,-3.707" TabIndex="16" Height="19.96" VerticalAlignment="Top" Click="calPrice_Click"/>
             </VirtualizingStackPanel>
         </GroupBox>
+        <Label x:Name="label13" Content="ผู้ใช้งานโปรแกรม :" Canvas.Left="357.767" Canvas.Top="4.384"/>
+        <Label x:Name="userNameShow" Content="" Canvas.Left="449.667" Canvas.Top="4.384" Width="116.364"/>
+        <UserControl x:Name="login" Height="164.88" Canvas.Left="108.303" Canvas.Top="147.294" Width="331.364" Background="#FFDADADA">
+            <GroupBox x:Name="groupBox2" Header="เข้าสู่ระบบ" Margin="10">
+                <Canvas Margin="0,0,-2,-3.08">
+                    <Label x:Name="label14" Content="Username :" RenderTransformOrigin="0.211,-0.576" Canvas.Left="10" Canvas.Top="18.706" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                    <Label x:Name="label14_Copy" Content="Password :" RenderTransformOrigin="0.211,-0.576" Canvas.Left="13" Canvas.Top="48.666" Width="69.183" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                    <TextBox x:Name="usernameInput" Height="23" TextWrapping="Wrap" Width="190" Canvas.Left="83.183" Canvas.Top="21.666"/>
+                    <PasswordBox  x:Name="passwordInput" Height="23" Width="190" Canvas.Left="83.183" Canvas.Top="52.666"/>
+                    <Button x:Name="loginBtn" Content="Login" Width="92" Canvas.Left="190" Canvas.Top="89.04" Height="25.96" Click="loginBtn_Click"/>
+                </Canvas>
+            </GroupBox>
+        </UserControl>
     </Canvas>
 </Window>

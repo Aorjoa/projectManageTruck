@@ -32,7 +32,7 @@ namespace WpfApplication2
         {
 
             DataSet dataSet = new DataSet();
-            string query = "select * from records where ctId like '%"+ctIdSearch.Text+"%' and ctName like '%"+ ctNameSearch.Text + "%'";
+            string query = "select ROWID as เลขที่รายการ, ctId as รหัสลูกค้า, ctName as ชื่อลูกค้า, ctPhone as เบอร์ไทร, ctAddress as ที่อยู่, dateOp as วันเวลา, hvName as คนเกี่ยว, hvArea as จำนวนไร่, hvPriceArea as ไร่ละ, bhName as คนขับแบคโฮ, bhHours as ชั่วโมว, bhPriceHours as ชั่วโมงละ, trName as คนขับสิบล้อ, trNum as จำนวนรอบ, trPriceNum as รอบละ, price as ราคารวม, pay as จ่ายแล้ว, recorder as คนบันทึก from records where ctId like '%" + ctIdSearch.Text+"%' and ctName like '%"+ ctNameSearch.Text + "%'";
 
             SQLiteDataAdapter dataAdapter = new SQLiteDataAdapter(query, dbManager);
             dataAdapter.Fill(dataSet);
