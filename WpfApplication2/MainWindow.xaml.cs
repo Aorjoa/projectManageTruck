@@ -96,7 +96,7 @@ namespace WpfApplication2
             }
             dbManager = new SQLiteConnection("Data Source=db.sqlite;Version=3;");
             dbManager.Open();
-            string createTableRecord = "create table if not exists records (ctId text, ctName text, ctPhone text, ctAddress text, dateOp int, hvName text, hvArea int, hvPriceArea int, bhName text, bhHours int, bhPriceHours int, trName text, trNum int, trPriceNum int, price int, pay int,recorder text)";
+            string createTableRecord = "create table if not exists records (ctId text, ctName text, ctPhone text, ctAddress text, dateOp text, hvName text, hvArea int, hvPriceArea int, bhName text, bhHours int, bhPriceHours int, trName text, trNum int, trPriceNum int, price int, pay int,recorder text)";
             SQLiteCommand command = new SQLiteCommand(createTableRecord, dbManager);
             command.ExecuteNonQuery();
             string createTableMember = "create table if not exists members (mbUsername text, mbName text, mbPassword text, unique (mbUsername))";
