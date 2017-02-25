@@ -24,3 +24,5 @@ c:\users\aorjoa\documents\visual studio 2015\Projects\WpfApplication2\WpfApplica
 c:\users\aorjoa\documents\visual studio 2015\Projects\WpfApplication2\WpfApplication2\obj\Debug\App.baml
 C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\WpfApplication2\WpfApplication2\obj\Debug\SearchWindow.g.cs
 C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\WpfApplication2\WpfApplication2\obj\Debug\SearchWindow.baml
+C:\Users\AorJoa\documents\visual studio 2015\Projects\WpfApplication2\WpfApplication2\obj\Debug\Members.g.cs
+C:\Users\AorJoa\documents\visual studio 2015\Projects\WpfApplication2\WpfApplication2\obj\Debug\Members.baml

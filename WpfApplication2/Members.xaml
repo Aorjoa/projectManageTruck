@@ -1,0 +1,19 @@
+﻿<Window x:Class="WpfApplication2.Members"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication2"
+        mc:Ignorable="d"
+        Title="Members" Height="277.125" Width="211.25">
+    <Grid>
+        <Label x:Name="label" Content="::: Username :::" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="usernameAdd" Height="23" Margin="10,40.96,18.583,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
+        <PasswordBox x:Name="passwordAdd" Margin="10,93.585,18.583,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy" Content="::: Password :::" HorizontalAlignment="Left" Margin="10,68.96,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy1" Content="::: Name :::" HorizontalAlignment="Left" Margin="10,116.545,0,99.62" d:LayoutOverrides="Height"/>
+        <TextBox x:Name="nameAdd" Height="23" Margin="10,0,18.583,74.955" TextWrapping="Wrap" VerticalAlignment="Bottom"/>
+        <Button x:Name="addMember" Content="เพิ่มผู้ใช้" Margin="10,0,18.583,18.498" VerticalAlignment="Bottom" Height="39.96" Click="addMember_Click"/>
+
+    </Grid>
+</Window>

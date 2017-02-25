@@ -166,15 +166,16 @@ namespace WpfApplication2
             string foundMember = "select count(*) from members where mbUsername=='" + usernameInput.Text + "' and mbPassword=='" + password + "'";
             SQLiteCommand cmd = new SQLiteCommand(foundMember,dbManager);
             int count = Convert.ToInt32(cmd.ExecuteScalar());
-            if ( count < 1) { MessageBox.Show("ไม่พบข้อมูลผู้ใช้งาน!", "ผิดพลาด", MessageBoxButton.OK, MessageBoxImage.Warning); return; }
+            if ( count < 1) { MessageBox.Show("ไม่พบข้อมูลผู้ใช้งานหรือรหัสผ่านไม่ถูกต้อง!", "ผิดพลาด", MessageBoxButton.OK, MessageBoxImage.Warning); return; }
             recorder = usernameInput.Text;
             userNameShow.Content = recorder;
             addRecord.IsEnabled = true;
             searchRecord.IsEnabled = true;
+            addMember.IsEnabled = true;
             login.Visibility = Visibility.Hidden;
         }
 
-        private static string createMD5(string input)
+        public static string createMD5(string input)
         {
             using (System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create())
             {
@@ -189,6 +190,12 @@ namespace WpfApplication2
 
                 return sb.ToString();
             }
+        }
+
+        private void addMember_Click(object sender, RoutedEventArgs e)
+        {
+            Members m = new Members(dbManager);
+            m.Show();
         }
     }
 }
