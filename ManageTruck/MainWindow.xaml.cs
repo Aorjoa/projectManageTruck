@@ -75,8 +75,9 @@ namespace WpfApplication2
                 int ibhPriceHours = int.Parse(bhPriceHours.Text);
                 int itrNum = int.Parse(trNum.Text);
                 int itrPriceNum = int.Parse(trPriceNum.Text);
-                calculatePrice = ((ihvArea * ihvPriceArea) + (ibhHours * ibhPriceHours) + (itrNum * itrPriceNum));
-
+                int ittNum = int.Parse(ttNum.Text);
+                int ittPriceNum = int.Parse(ttPriceNum.Text);
+                calculatePrice = ((ihvArea * ihvPriceArea) + (ibhHours * ibhPriceHours) + (itrNum * itrPriceNum) + (ittNum * ittPriceNum));
             }
             catch (FormatException ex)
             {
@@ -85,8 +86,6 @@ namespace WpfApplication2
             }
             return calculatePrice;
         }
-
-
         private void connectDb()
         {
             //Initial
