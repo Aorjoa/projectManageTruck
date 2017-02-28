@@ -79,6 +79,8 @@
       <HintPath>..\packages\System.Data.SQLite.Linq.1.0.104.0\lib\net45\System.Data.SQLite.Linq.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -100,6 +102,9 @@
     <Compile Include="Members.xaml.cs">
       <DependentUpon>Members.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PaidTransaction.xaml.cs">
+      <DependentUpon>PaidTransaction.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SearchWindow.xaml.cs">
       <DependentUpon>SearchWindow.xaml</DependentUpon>
     </Compile>
@@ -116,6 +121,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Members.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PaidTransaction.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

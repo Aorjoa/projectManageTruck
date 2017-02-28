@@ -117,7 +117,7 @@
                 </Canvas>
             </StackPanel>
         </Canvas>
-        <Button x:Name="paid" Content="ระบบจ่ายเงิน" Canvas.Left="450" Canvas.Top="321" Width="116" Height="57" Panel.ZIndex="18" Click="searchRecord_Click" IsEnabled="False"/>
+        <Button x:Name="paid" Content="การชำระเงิน" Canvas.Left="450" Canvas.Top="321" Width="116" Height="57" Panel.ZIndex="18" Click="paid_Click"/>
         <UserControl x:Name="login" Height="165" Canvas.Left="114" Canvas.Top="212" Width="331" Background="#FFDADADA">
             <GroupBox x:Name="groupBox2" Header="เข้าสู่ระบบ" Margin="10">
                 <Canvas Margin="0,0,-2,-3.08">

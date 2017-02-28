@@ -230,5 +230,11 @@ namespace WpfApplication2
             Members m = new Members(dbManager);
             m.Show();
         }
+
+        private void paid_Click(object sender, RoutedEventArgs e)
+        {
+            PaidTransaction p = new PaidTransaction(dbManager,recorder);
+            p.Show();
+        }
     }
 }
