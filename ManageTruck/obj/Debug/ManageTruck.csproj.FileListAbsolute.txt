@@ -25,3 +25,4 @@ C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\ob
 C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\obj\Debug\WpfApplication2.g.resources
 C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\obj\Debug\WpfApplication2.Properties.Resources.resources
 C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\obj\Debug\ManageTruck.csproj.GenerateResource.Cache
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\obj\Debug\ManageTruck.csprojResolveAssemblyReference.cache

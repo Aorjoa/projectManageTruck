@@ -96,8 +96,11 @@ namespace WpfApplication2
             }
             dbManager = new SQLiteConnection("Data Source=db.sqlite;Version=3;");
             dbManager.Open();
-            string createTableRecord = "create table if not exists records (ctId text, ctName text, ctPhone text, ctAddress text, dateOp text, hvName text, hvArea int, hvPriceArea int, hvAddress text, bhName text, bhHours int, bhPriceHours int, trName text, trNum int, trPriceNum int, ttName text, ttNum int, ttPriceNum int, price int, pay int, recorder text)";
+            string createTableRecord = "create table if not exists records (ctId text, ctName text, ctPhone text, ctAddress text, dateOp text, hvName text, hvArea int, hvPriceArea int, hvAddress text, bhName text, bhHours int, bhPriceHours int, trName text, trNum int, trPriceNum int, ttName text, ttNum int, ttPriceNum int, price int, recorder text)";
             SQLiteCommand command = new SQLiteCommand(createTableRecord, dbManager);
+            command.ExecuteNonQuery();
+            string createTableTransaction = "create table if not exists transactions (recordId int, pay int, recorder text)";
+            command = new SQLiteCommand(createTableTransaction, dbManager);
             command.ExecuteNonQuery();
             string createTableMember = "create table if not exists members (mbUsername text, mbName text, mbPassword text, unique (mbUsername))";
             command = new SQLiteCommand(createTableMember, dbManager);
@@ -122,9 +125,13 @@ namespace WpfApplication2
                 int paid = 0;
                 if (payPartly.IsChecked.Value) { int.TryParse(payPartlyPrice.Text, out paid); }
                 if (payFull.IsChecked.Value) { int.TryParse(payPrice.Text, out paid); }
-                string sql = genInsertSql(new String[] { ctId.Text, ctName.Text, ctPhone.Text, ctAddress.Text, dateOp.Text, hvName.Text, hvArea.Text, hvPriceArea.Text, hvAddress.Text, bhName.Text, bhHours.Text, bhPriceHours.Text, trName.Text, trNum.Text, trPriceNum.Text, ttName.Text, ttNum.Text, ttPriceNum.Text, payPrice.Text, paid.ToString(), recorder });
-                SQLiteCommand command = new SQLiteCommand(sql, dbManager);
+                string sqlAddRecord = genInsertSql(new String[] { ctId.Text, ctName.Text, ctPhone.Text, ctAddress.Text, dateOp.Text, hvName.Text, hvArea.Text, hvPriceArea.Text, hvAddress.Text, bhName.Text, bhHours.Text, bhPriceHours.Text, trName.Text, trNum.Text, trPriceNum.Text, ttName.Text, ttNum.Text, ttPriceNum.Text, payPrice.Text, recorder });
+                SQLiteCommand command = new SQLiteCommand(sqlAddRecord, dbManager);
                 command.ExecuteNonQuery();
+                string sqlAddPaidTransactions = "insert into transactions (recordId,pay,recorder) select ROWID," + paid.ToString() + ",'" + recorder + "' from records order by ROWID desc limit 1";
+                command = new SQLiteCommand(sqlAddPaidTransactions, dbManager);
+                command.ExecuteNonQuery();
+                
                 MessageBox.Show("บันทึกข้อมูลของสมาชิก " + ctId.Text + " : " + ctName.Text + " เรียบร้อยแล้ว", "สำเร็จ", MessageBoxButton.OK, MessageBoxImage.Information);
                 clearInput();
             }
@@ -162,7 +169,7 @@ namespace WpfApplication2
 
         private String genInsertSql(String[] str)
         {
-            String init = "insert into records (ctId, ctName, ctPhone, ctAddress, dateOp, hvName, hvArea, hvPriceArea, hvAddress, bhName, bhHours, bhPriceHours, trName, trNum , trPriceNum, ttName, ttNum, ttPriceNum, price, pay, recorder) values (";
+            String init = "insert into records (ctId, ctName, ctPhone, ctAddress, dateOp, hvName, hvArea, hvPriceArea, hvAddress, bhName, bhHours, bhPriceHours, trName, trNum , trPriceNum, ttName, ttNum, ttPriceNum, price, recorder) values (";
 
             foreach (String element in str)
             {
