@@ -1,0 +1,27 @@
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\WpfApplication2\WpfApplication2\bin\Release\WpfApplication2.exe.config
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\WpfApplication2\WpfApplication2\bin\Release\WpfApplication2.exe
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\WpfApplication2\WpfApplication2\bin\Release\WpfApplication2.pdb
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\WpfApplication2\WpfApplication2\bin\Release\EntityFramework.dll
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\WpfApplication2\WpfApplication2\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\WpfApplication2\WpfApplication2\bin\Release\System.Data.SQLite.dll
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\WpfApplication2\WpfApplication2\bin\Release\System.Data.SQLite.EF6.dll
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\WpfApplication2\WpfApplication2\bin\Release\System.Data.SQLite.Linq.dll
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\WpfApplication2\WpfApplication2\bin\Release\EntityFramework.xml
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\WpfApplication2\WpfApplication2\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\WpfApplication2\WpfApplication2\bin\Release\System.Data.SQLite.xml
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\WpfApplication2\WpfApplication2\obj\Release\Simple Styles.baml
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\WpfApplication2\WpfApplication2\obj\Release\MainWindow.g.cs
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\WpfApplication2\WpfApplication2\obj\Release\Members.g.cs
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\WpfApplication2\WpfApplication2\obj\Release\SearchWindow.g.cs
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\WpfApplication2\WpfApplication2\obj\Release\App.g.cs
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\WpfApplication2\WpfApplication2\obj\Release\WpfApplication2_MarkupCompile.cache
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\WpfApplication2\WpfApplication2\obj\Release\WpfApplication2_MarkupCompile.lref
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\WpfApplication2\WpfApplication2\obj\Release\App.baml
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\WpfApplication2\WpfApplication2\obj\Release\MainWindow.baml
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\WpfApplication2\WpfApplication2\obj\Release\Members.baml
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\WpfApplication2\WpfApplication2\obj\Release\SearchWindow.baml
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\WpfApplication2\WpfApplication2\obj\Release\WpfApplication2.g.resources
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\WpfApplication2\WpfApplication2\obj\Release\WpfApplication2.Properties.Resources.resources
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\WpfApplication2\WpfApplication2\obj\Release\WpfApplication2.csproj.GenerateResource.Cache
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\WpfApplication2\WpfApplication2\obj\Release\WpfApplication2.exe
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\WpfApplication2\WpfApplication2\obj\Release\WpfApplication2.pdb

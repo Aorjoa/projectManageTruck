@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManageTruck", "WpfApplication2\ManageTruck.csproj", "{C954A56B-C2D5-4FC5-A745-C8B2FE98C623}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupManageTruck", "SetupManageTruck\SetupManageTruck.vdproj", "{893C9364-7599-4C17-9459-F92DCA4D2C78}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C954A56B-C2D5-4FC5-A745-C8B2FE98C623}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C954A56B-C2D5-4FC5-A745-C8B2FE98C623}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C954A56B-C2D5-4FC5-A745-C8B2FE98C623}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C954A56B-C2D5-4FC5-A745-C8B2FE98C623}.Release|Any CPU.Build.0 = Release|Any CPU
+		{893C9364-7599-4C17-9459-F92DCA4D2C78}.Debug|Any CPU.ActiveCfg = Debug
+		{893C9364-7599-4C17-9459-F92DCA4D2C78}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
