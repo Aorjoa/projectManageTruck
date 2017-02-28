@@ -1,3 +1,6 @@
 C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\WpfApplication2\WpfApplication2\bin\Release\WpfApplication2.exe.config
 C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\WpfApplication2\WpfApplication2\obj\Release\WpfApplication2.exe
 C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\WpfApplication2\WpfApplication2\obj\Release\WpfApplication2.pdb
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\bin\Release\WpfApplication2.exe.config
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\obj\Release\WpfApplication2.exe
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\obj\Release\WpfApplication2.pdb
