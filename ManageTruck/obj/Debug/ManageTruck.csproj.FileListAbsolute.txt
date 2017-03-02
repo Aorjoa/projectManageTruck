@@ -45,4 +45,3 @@ C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\bi
 C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\bin\Debug\stdole.dll
 C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\obj\Debug\Report.g.cs
 C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\obj\Debug\Report.baml
-C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\obj\Debug\ManageTruck.csprojResolveAssemblyReference.cache

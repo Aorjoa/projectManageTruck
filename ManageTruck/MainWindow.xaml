@@ -8,7 +8,7 @@
         Title="ระบบจัดการรถ" Height="619.5" Width="594" ResizeMode="CanMinimize">
     <Canvas x:Name="___No_Name_" Margin="0,0,0,-2" HorizontalAlignment="Right" Width="585">
         <Button x:Name="addRecord" Content="เพิ่มข้อมูล" Canvas.Left="450" Canvas.Top="176" Width="116" Height="62" Panel.ZIndex="17" Click="addRecord_Click" IsEnabled="False"/>
-        <Button x:Name="searchRecord" Content="ค้นหาข้อมูล" Canvas.Left="450" Canvas.Top="251" Width="116" Height="57" Panel.ZIndex="18" Click="searchRecord_Click"/>
+        <Button x:Name="searchRecord" Content="ค้นหาข้อมูล" Canvas.Left="450" Canvas.Top="251" Width="116" Height="57" Panel.ZIndex="18" Click="searchRecord_Click" IsEnabled="False"/>
         <Button x:Name="addMember" Content="เพิ่มผู้ใช้ระบบ" Canvas.Left="450" Canvas.Top="392" Width="116" Height="57" Panel.ZIndex="18" Click="addMember_Click" IsEnabled="False"/>
         <GroupBox x:Name="groupBox" Header="รถเกี่ยว" Canvas.Left="24" Canvas.Top="156" Height="79.96" Width="403.364"/>
         <GroupBox x:Name="groupBox1" Header="แบคโฮ" Canvas.Left="24.5" Canvas.Top="246" Width="275.864" Height="106.46"/>
@@ -117,7 +117,7 @@
                 </Canvas>
             </StackPanel>
         </Canvas>
-        <Button x:Name="paid" Content="การชำระเงิน" Canvas.Left="450" Canvas.Top="321" Width="116" Height="57" Panel.ZIndex="18" Click="paid_Click"/>
+        <Button x:Name="paid" Content="การชำระเงิน" Canvas.Left="450" Canvas.Top="321" Width="116" Height="57" Panel.ZIndex="18" Click="paid_Click" IsEnabled="False"/>
         <UserControl x:Name="login" Height="165" Canvas.Left="114" Canvas.Top="212" Width="331" Background="#FFDADADA">
             <GroupBox x:Name="groupBox2" Header="เข้าสู่ระบบ" Margin="10">
                 <Canvas Margin="0,0,-2,-3.08">

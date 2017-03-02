@@ -108,8 +108,8 @@
         </GroupBox>
         <Label x:Name="label13" Content="ใบรายการเลขที่ :" HorizontalAlignment="Left" Margin="370,0,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="recordId" TextWrapping="Wrap" Height="21" VerticalAlignment="Bottom" Panel.ZIndex="18" TabIndex="18" Background="{x:Null}" BorderBrush="{x:Null}" Margin="457,0,18,558"/>
-        <Button x:Name="print" Content="พิมพ์" HorizontalAlignment="Left" Margin="386,383,0,0" VerticalAlignment="Top" Width="75" Height="62" Click="print_Click"/>
-        <Button x:Name="close" Content="ปิดหน้าแสดงายการ" HorizontalAlignment="Left" Margin="473,383,0,0" VerticalAlignment="Top" Width="134" Height="62" Click="close_Click"/>
+        <Button x:Name="print" Content="พิมพ์" HorizontalAlignment="Left" Margin="382,383,0,0" VerticalAlignment="Top" Width="75" Height="62" Click="print_Click"/>
+        <Button x:Name="close" Content="ปิดหน้าแสดงายการ" HorizontalAlignment="Left" Margin="469,383,0,0" VerticalAlignment="Top" Width="134" Height="62" Click="close_Click"/>
 
     </Grid>
 </Window>

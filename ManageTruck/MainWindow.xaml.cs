@@ -205,6 +205,7 @@ namespace WpfApplication2
             addRecord.IsEnabled = true;
             searchRecord.IsEnabled = true;
             addMember.IsEnabled = true;
+            paid.IsEnabled = true;
             login.Visibility = Visibility.Hidden;
         }
 
