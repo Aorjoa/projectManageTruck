@@ -39,7 +39,7 @@ namespace WpfApplication2
             dataAdapter.Fill(dataSet);
             dataGrid.ItemsSource = dataSet.Tables[0].DefaultView;
 
-            recordId = dataSet.Tables[0].Rows[0].ItemArray[0].ToString();
+            recordId = dataSet.Tables[0].Rows[0].ItemArray[1].ToString();
             if(recordId != "")
             {
                 lblRecoardId.Content = recordId;

@@ -7,13 +7,14 @@
         mc:Ignorable="d"
         Title="SearchWindow">
     <Grid Margin="0,0,-1,0">
-        <GroupBox x:Name="groupBox" Header="กล่องค้นหา" Margin="143,10,148.803,0" VerticalAlignment="Top" Height="58.96">
+        <GroupBox x:Name="groupBox" Header="กล่องค้นหา" Margin="60,30,57,0" VerticalAlignment="Top" Height="58">
             <Grid Margin="0,0,-2,-3.96" Width="450" Height="39">
                 <Button x:Name="seachNow" Content="ค้นหา" Margin="0,3.001,8.33,5.999" Click="seachNow_Click" HorizontalAlignment="Right" Width="85.53"/>
                 <TextBox x:Name="ctIdSearch" Margin="69.903,10,0,6.96" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Left" Width="107"/>
                 <Label x:Name="label_Copy" Content="ชื่อลูกค้า :" Margin="185.736,6.998,208.86,6.999" d:LayoutOverrides="Height"/>
                 <Label x:Name="label" Content="รหัสลูกค้า :" HorizontalAlignment="Left" Margin="9.5,7,0,7" d:LayoutOverrides="Height"/>
                 <TextBox x:Name="ctNameSearch" Margin="0,7.998,98.86,8.962" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Right" Width="107"/>
+                <Button x:Name="showRecord" Content="แสดงใบรายการ" HorizontalAlignment="Left" Margin="447,3,-87,0" VerticalAlignment="Top" Width="90" Height="30" Click="showRecord_Click" RenderTransformOrigin="-0.303,0.179"/>
             </Grid>
         </GroupBox>
         <DataGrid x:Name="dataGrid" Margin="60,108,57,68"/>
