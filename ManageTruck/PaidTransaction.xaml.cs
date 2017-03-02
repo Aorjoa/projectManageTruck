@@ -33,33 +33,36 @@ namespace WpfApplication2
 
         private void searchRecord_Click(object sender, RoutedEventArgs e)
         {
-            DataSet dataSet = new DataSet();
-            string query = "select ROWID as เลขที่ชำระเงิน, recordId as เลขที่รายการ, pay as จำนวนเงินที่จ่าย, recorder as คนบันทึก from transactions where recordId like '%" + inputRecordId.Text + "%'";
-            SQLiteDataAdapter dataAdapter = new SQLiteDataAdapter(query, dbManager);
-            dataAdapter.Fill(dataSet);
-            dataGrid.ItemsSource = dataSet.Tables[0].DefaultView;
+            try
+            {
+                DataSet dataSet = new DataSet();
+                string query = "select ROWID as เลขที่ชำระเงิน, recordId as เลขที่รายการ, pay as จำนวนเงินที่จ่าย, recorder as คนบันทึก from transactions where recordId = '" + inputRecordId.Text + "'";
+                SQLiteDataAdapter dataAdapter = new SQLiteDataAdapter(query, dbManager);
+                dataAdapter.Fill(dataSet);
+                dataGrid.ItemsSource = dataSet.Tables[0].DefaultView;
 
-            recordId = dataSet.Tables[0].Rows[0].ItemArray[1].ToString();
-            if(recordId != "")
-            {
-                lblRecoardId.Content = recordId;
+                query = "select((sum(price) / count(price)) - sum(pay)) from(select records.recordId, price, pay from records left join transactions on records.recordId = transactions.recordId) where recordId = '" + inputRecordId.Text + "' group by recordId";
+                DataSet remainSet = new DataSet();
+                dataAdapter = new SQLiteDataAdapter(query, dbManager);
+                dataAdapter.Fill(remainSet);
+                string remainCost = remainSet.Tables[0].Rows[0].ItemArray[0].ToString();
+                if (remainCost != "")
+                {
+                    lblRemainCost.Content = remainCost;
+                }
+                lblRecoardId.Content = inputRecordId.Text;
             }
-            query = "select((sum(price) / count(price)) - sum(pay)) from(select recordId, price, pay from records left join transactions on records.ROWID = transactions.recordId) where recordId = '"+recordId+"' group by recordId";
-            DataSet remainSet = new DataSet();
-            dataAdapter = new SQLiteDataAdapter(query, dbManager);
-            dataAdapter.Fill(remainSet);
-            string remainCost = remainSet.Tables[0].Rows[0].ItemArray[0].ToString();
-            if (remainCost != "")
+            catch (Exception)
             {
-                lblRemainCost.Content = remainCost;
+                MessageBox.Show("ไม่พบผลการค้นหาหรือการดำเนินการผิดพลาด", "ผิดพลาด", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 
         private void payMore_Click(object sender, RoutedEventArgs e)
         {
             try {
-                if (recordId != "" && recorder != "") {
-                    string sqlAddPaidTransactions = "insert into transactions (recordId,pay,recorder) values ('" + recordId + "'," + inputPaidAmont.Text + ",'" +recorder+"')";
+                if (inputRecordId.Text != "" && recorder != "") {
+                    string sqlAddPaidTransactions = "insert into transactions (recordId,pay,recorder) values ('" + inputRecordId.Text + "'," + inputPaidAmont.Text + ",'" +recorder+"')";
                     SQLiteCommand command = new SQLiteCommand(sqlAddPaidTransactions, dbManager);
                     command.ExecuteNonQuery();
                     MessageBox.Show("เพิ่มรายการชำระเงินเรียบร้อยแล้ว", "สำเร็จ", MessageBoxButton.OK, MessageBoxImage.Information);

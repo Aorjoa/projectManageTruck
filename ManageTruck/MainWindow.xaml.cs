@@ -95,10 +95,15 @@ namespace WpfApplication2
             }
             dbManager = new SQLiteConnection("Data Source=db.sqlite;Version=3;");
             dbManager.Open();
-            string createTableRecord = "create table if not exists records (ctId text, ctName text, ctPhone text, ctAddress text, dateOp text, hvName text, hvArea int, hvPriceArea int, hvAddress text, bhName text, bhHours int, bhPriceHours int, trName text, trNum int, trPriceNum int, ttName text, ttNum int, ttPriceNum int, price int, recorder text)";
+            string createTableRecord = "create table if not exists records (recordId text, checkSync int, ctId text, ctName text, ctPhone text, ctAddress text, dateOp text, hvName text, hvArea int, hvPriceArea int, hvAddress text, bhName text, bhHours int, bhPriceHours int, trName text, trNum int, trPriceNum int, ttName text, ttNum int, ttPriceNum int, price int, recorder text)";
             SQLiteCommand command = new SQLiteCommand(createTableRecord, dbManager);
             command.ExecuteNonQuery();
-            string createTableTransaction = "create table if not exists transactions (recordId int, pay int, recorder text)";
+
+            string addFirstRowForTest = "insert into records (recordId) select ('') where not exists (select * from records)";
+            command = new SQLiteCommand(addFirstRowForTest, dbManager);
+            command.ExecuteNonQuery();
+            
+            string createTableTransaction = "create table if not exists transactions (recordId text, pay int, recorder text)";
             command = new SQLiteCommand(createTableTransaction, dbManager);
             command.ExecuteNonQuery();
             string createTableMember = "create table if not exists members (mbUsername text, mbName text, mbPassword text, unique (mbUsername))";
@@ -127,7 +132,7 @@ namespace WpfApplication2
                 string sqlAddRecord = genInsertSql(new String[] { ctId.Text, ctName.Text, ctPhone.Text, ctAddress.Text, dateOp.Text, hvName.Text, hvArea.Text, hvPriceArea.Text, hvAddress.Text, bhName.Text, bhHours.Text, bhPriceHours.Text, trName.Text, trNum.Text, trPriceNum.Text, ttName.Text, ttNum.Text, ttPriceNum.Text, payPrice.Text, recorder });
                 SQLiteCommand command = new SQLiteCommand(sqlAddRecord, dbManager);
                 command.ExecuteNonQuery();
-                string sqlAddPaidTransactions = "insert into transactions (recordId,pay,recorder) select ROWID," + paid.ToString() + ",'" + recorder + "' from records order by ROWID desc limit 1";
+                string sqlAddPaidTransactions = "insert into transactions (recordId,pay,recorder) select recordId," + paid.ToString() + ",'" + recorder + "' from records order by ROWID desc limit 1";
                 command = new SQLiteCommand(sqlAddPaidTransactions, dbManager);
                 command.ExecuteNonQuery();
                 
@@ -168,7 +173,7 @@ namespace WpfApplication2
 
         private String genInsertSql(String[] str)
         {
-            String init = "insert into records (ctId, ctName, ctPhone, ctAddress, dateOp, hvName, hvArea, hvPriceArea, hvAddress, bhName, bhHours, bhPriceHours, trName, trNum , trPriceNum, ttName, ttNum, ttPriceNum, price, recorder) values (";
+            String init = "insert into records (recordId, checkSync, ctId, ctName, ctPhone, ctAddress, dateOp, hvName, hvArea, hvPriceArea, hvAddress, bhName, bhHours, bhPriceHours, trName, trNum , trPriceNum, ttName, ttNum, ttPriceNum, price, recorder) select printf('PC%s',ROWID),1,";
 
             foreach (String element in str)
             {
@@ -182,7 +187,7 @@ namespace WpfApplication2
                     init += "\"" + element + "\",";
                 }
             }
-            init = (init.Remove(init.Length - 1)) + ")";
+            init = (init.Remove(init.Length - 1)) + " from records order by ROWID desc limit 1";
 
             return init;
         }
