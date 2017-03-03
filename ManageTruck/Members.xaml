@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication2"
         mc:Ignorable="d"
-        Title="Members" Height="277.125" Width="211.25">
+        Title="Members" Height="277.125" Width="211.25" Icon="trucking.ico">
     <Grid>
         <Label x:Name="label" Content="::: Username :::" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="usernameAdd" Height="23" Margin="10,40.96,18.583,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>

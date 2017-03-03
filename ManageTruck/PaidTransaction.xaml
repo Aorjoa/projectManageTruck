@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication2"
         mc:Ignorable="d"
-        Title="PaidTransaction" Height="332.667" Width="465.475">
+        Title="PaidTransaction" Height="332.667" Width="465.475" Icon="trucking.ico">
     <Grid HorizontalAlignment="Left" Height="301" VerticalAlignment="Top" Width="466" Margin="0,0,-58,0">
         <Label x:Name="label" Content="เลขที่รายการ :" HorizontalAlignment="Left" Margin="37,10,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="inputRecordId" HorizontalAlignment="Left" Height="23" Margin="116,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="234"/>
