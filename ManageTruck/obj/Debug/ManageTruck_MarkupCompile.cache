@@ -1,19 +1,19 @@
-﻿WpfApplication2
+﻿ManageTruck
 
 
 winexe
 C#
 .cs
 C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\obj\Debug\
-WpfApplication2
+ManageTruck
 none
 false
 DEBUG;TRACE
 C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\App.xaml
 6560879894
 
-13-324557186
-24-1127222841
+9-173241555
+15-1102981451
 MainWindow.xaml;Members.xaml;PaidTransaction.xaml;Report.xaml;SearchWindow.xaml;Simple Styles.xaml;
 
 True

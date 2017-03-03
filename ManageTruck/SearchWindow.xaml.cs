@@ -41,10 +41,16 @@ namespace WpfApplication2
 
         private void showRecord_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
                 object[] selected = ((System.Data.DataRowView)dataGrid.SelectedItem).Row.ItemArray;
                 Report rp = new Report(selected);
                 rp.Show();
-           
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("ให้เลือกรายการหลังจากการค้นหาเพียงรายการเดียว", "ผิดพลาด", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
     }
 }

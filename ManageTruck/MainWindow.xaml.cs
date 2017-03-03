@@ -103,7 +103,7 @@ namespace WpfApplication2
             command = new SQLiteCommand(addFirstRowForTest, dbManager);
             command.ExecuteNonQuery();
             
-            string createTableTransaction = "create table if not exists transactions (recordId text, pay int, recorder text)";
+            string createTableTransaction = "create table if not exists transactions (recordId text, pay int, recordDate text, recorder text)";
             command = new SQLiteCommand(createTableTransaction, dbManager);
             command.ExecuteNonQuery();
             string createTableMember = "create table if not exists members (mbUsername text, mbName text, mbPassword text, unique (mbUsername))";
@@ -132,7 +132,7 @@ namespace WpfApplication2
                 string sqlAddRecord = genInsertSql(new String[] { ctId.Text, ctName.Text, ctPhone.Text, ctAddress.Text, dateOp.Text, hvName.Text, hvArea.Text, hvPriceArea.Text, hvAddress.Text, bhName.Text, bhHours.Text, bhPriceHours.Text, trName.Text, trNum.Text, trPriceNum.Text, ttName.Text, ttNum.Text, ttPriceNum.Text, payPrice.Text, recorder });
                 SQLiteCommand command = new SQLiteCommand(sqlAddRecord, dbManager);
                 command.ExecuteNonQuery();
-                string sqlAddPaidTransactions = "insert into transactions (recordId,pay,recorder) select recordId," + paid.ToString() + ",'" + recorder + "' from records order by ROWID desc limit 1";
+                string sqlAddPaidTransactions = "insert into transactions (recordId,pay,recordDate,recorder) select recordId," + paid.ToString() + ",dateOp,'" + recorder + "' from records order by ROWID desc limit 1";
                 command = new SQLiteCommand(sqlAddPaidTransactions, dbManager);
                 command.ExecuteNonQuery();
                 

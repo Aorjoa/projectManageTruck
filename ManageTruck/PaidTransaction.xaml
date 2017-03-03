@@ -5,21 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication2"
         mc:Ignorable="d"
-        Title="PaidTransaction" Height="310.084" Width="415.966">
-    <Grid HorizontalAlignment="Left" Height="258" VerticalAlignment="Top" Width="415">
-        <Label x:Name="label" Content="เลขที่รายการ :" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="inputRecordId" HorizontalAlignment="Left" Height="23" Margin="89,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="234"/>
-        <Button x:Name="searchRecord" Content="ค้นหา" HorizontalAlignment="Left" Margin="328,13,0,0" VerticalAlignment="Top" Width="46" Height="23" Click="searchRecord_Click"/>
-        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Height="97" Width="378"/>
-        <GroupBox x:Name="groupBox" Header="แจ้งชำระเงิน" HorizontalAlignment="Left" Margin="10,157,0,0" VerticalAlignment="Top" Height="98" Width="378" BorderBrush="#FF298787">
-            <Grid HorizontalAlignment="Left" Height="75" Margin="0,0,-2,0" VerticalAlignment="Top" Width="368">
+        Title="PaidTransaction" Height="332.667" Width="465.475">
+    <Grid HorizontalAlignment="Left" Height="301" VerticalAlignment="Top" Width="466" Margin="0,0,-58,0">
+        <Label x:Name="label" Content="เลขที่รายการ :" HorizontalAlignment="Left" Margin="37,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="inputRecordId" HorizontalAlignment="Left" Height="23" Margin="116,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="234"/>
+        <Button x:Name="searchRecord" Content="ค้นหา" HorizontalAlignment="Left" Margin="355,13,0,0" VerticalAlignment="Top" Width="46" Height="23" Click="searchRecord_Click"/>
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Height="97" Width="421"/>
+        <GroupBox x:Name="groupBox" Header="แจ้งชำระเงิน" HorizontalAlignment="Left" Margin="10,157,0,0" VerticalAlignment="Top" Height="124" Width="421" BorderBrush="#FF298787">
+            <Grid HorizontalAlignment="Left" Height="105" Margin="0,0,-45,-3" VerticalAlignment="Top" Width="411">
                 <Label x:Name="lblRecoardId" Content="&lt;กรุณาค้นหา&gt;" HorizontalAlignment="Left" Margin="89,2,0,0" VerticalAlignment="Top" Width="111"/>
                 <Label x:Name="label_Copy" Content="เลขที่รายการ :" HorizontalAlignment="Left" Margin="14,2,0,0" VerticalAlignment="Top"/>
                 <Label x:Name="label_Copy1" Content="ค้างชำระ :" HorizontalAlignment="Left" Margin="33,23,0,0" VerticalAlignment="Top"/>
                 <Label x:Name="lblRemainCost" Content="&lt;กรุณาค้นหา&gt;" HorizontalAlignment="Left" Margin="88,23,0,0" VerticalAlignment="Top" Width="111"/>
                 <Label x:Name="label_Copy2" Content="ชำระเงินเพิ่มเติม :" HorizontalAlignment="Left" Margin="0,45,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="inputPaidAmont" HorizontalAlignment="Left" Height="23" Margin="89,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                <Button x:Name="payMore" Content="$ ชำระเงิน $" HorizontalAlignment="Left" Margin="273,19,0,0" VerticalAlignment="Top" Width="75" Height="42" Click="payMore_Click"/>
+                <Button x:Name="payMore" Content="$ ชำระเงิน $" HorizontalAlignment="Left" Margin="316,29,0,0" VerticalAlignment="Top" Width="75" Height="42" Click="payMore_Click"/>
+                <Label x:Name="label_Copy3" Content="วันที่ชำระเงิน :" HorizontalAlignment="Left" Margin="15,69,0,0" VerticalAlignment="Top"/>
+                <DatePicker x:Name="paidDate" HorizontalAlignment="Left" Margin="89,76,0,0" VerticalAlignment="Top" Width="120"/>
             </Grid>
         </GroupBox>
     </Grid>

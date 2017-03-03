@@ -29,6 +29,7 @@ namespace WpfApplication2
             dbManager = conn;
             recorder = _recorder;
             InitializeComponent();
+            paidDate.SelectedDate = DateTime.Now;
         }
 
         private void searchRecord_Click(object sender, RoutedEventArgs e)
@@ -36,7 +37,7 @@ namespace WpfApplication2
             try
             {
                 DataSet dataSet = new DataSet();
-                string query = "select ROWID as เลขที่ชำระเงิน, recordId as เลขที่รายการ, pay as จำนวนเงินที่จ่าย, recorder as คนบันทึก from transactions where recordId = '" + inputRecordId.Text + "'";
+                string query = "select ROWID as เลขที่ชำระเงิน, recordId as เลขที่รายการ, pay as จำนวนเงินที่จ่าย, recordDate as วันที่จ่าย, recorder as คนบันทึก from transactions where recordId like '%" + inputRecordId.Text + "%'";
                 SQLiteDataAdapter dataAdapter = new SQLiteDataAdapter(query, dbManager);
                 dataAdapter.Fill(dataSet);
                 dataGrid.ItemsSource = dataSet.Tables[0].DefaultView;
@@ -62,7 +63,7 @@ namespace WpfApplication2
         {
             try {
                 if (inputRecordId.Text != "" && recorder != "") {
-                    string sqlAddPaidTransactions = "insert into transactions (recordId,pay,recorder) values ('" + inputRecordId.Text + "'," + inputPaidAmont.Text + ",'" +recorder+"')";
+                    string sqlAddPaidTransactions = "insert into transactions (recordId,pay,recordDate,recorder) values ('" + inputRecordId.Text + "'," + inputPaidAmont.Text + ",'"+paidDate.Text+"','" +recorder+"')";
                     SQLiteCommand command = new SQLiteCommand(sqlAddPaidTransactions, dbManager);
                     command.ExecuteNonQuery();
                     MessageBox.Show("เพิ่มรายการชำระเงินเรียบร้อยแล้ว", "สำเร็จ", MessageBoxButton.OK, MessageBoxImage.Information);

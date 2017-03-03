@@ -30,7 +30,6 @@ C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\bi
 C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\bin\Release\EntityFramework.xml
 C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\bin\Release\EntityFramework.SqlServer.xml
 C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\bin\Release\System.Data.SQLite.xml
-C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\obj\Release\ManageTruck.csprojResolveAssemblyReference.cache
 C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\obj\Release\Simple Styles.baml
 C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\obj\Release\MainWindow.g.cs
 C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\obj\Release\Members.g.cs
