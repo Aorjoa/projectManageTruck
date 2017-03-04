@@ -18,7 +18,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SQLite;
 using System.IO;
-
+using System.Management;
 namespace WpfApplication2
 {
     /// <summary>
@@ -31,7 +31,35 @@ namespace WpfApplication2
         public MainWindow()
         {
             connectDb();
+            checkComputerUsage();
             InitializeComponent();
+        }
+
+        private void checkComputerUsage()
+        {
+            ManagementObjectCollection mbsList = null;
+            ManagementObjectSearcher mbs = new ManagementObjectSearcher("Select * From Win32_processor");
+            mbsList = mbs.Get();
+            string id = "";
+            foreach (ManagementObject mo in mbsList)
+            {
+                id = mo["ProcessorID"].ToString();
+            }
+
+            File.AppendAllText(@"snd.dll", "");
+            string[] sn = File.ReadLines(@"snd.dll").ToArray();
+
+                int pos = Array.IndexOf(sn, id);
+                if (pos < 0)
+                {
+                    if (sn.Length < 3)
+                    {
+                        File.AppendAllText(@"snd.dll", id + "\n");
+                    }else
+                    {
+                        this.Close();
+                    }
+                }
         }
 
         private void payPartly_Checked(object sender, RoutedEventArgs e)

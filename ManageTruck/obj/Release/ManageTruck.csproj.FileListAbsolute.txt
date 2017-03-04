@@ -48,3 +48,7 @@ C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\ob
 C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\obj\Release\WpfApplication2.g.resources
 C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\obj\Release\WpfApplication2.Properties.Resources.resources
 C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\obj\Release\ManageTruck.csproj.GenerateResource.Cache
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\bin\Release\WpfApplication2.exe.manifest
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\bin\Release\WpfApplication2.application
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\obj\Release\WpfApplication2.exe.manifest
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\obj\Release\WpfApplication2.application

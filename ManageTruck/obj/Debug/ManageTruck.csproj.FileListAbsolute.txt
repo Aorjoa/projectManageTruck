@@ -46,3 +46,7 @@ C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\bi
 C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\obj\Debug\Report.g.cs
 C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\obj\Debug\Report.baml
 C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\obj\Debug\ManageTruck.csprojResolveAssemblyReference.cache
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\bin\Debug\WpfApplication2.exe.manifest
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\bin\Debug\WpfApplication2.application
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\obj\Debug\WpfApplication2.exe.manifest
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\obj\Debug\WpfApplication2.application

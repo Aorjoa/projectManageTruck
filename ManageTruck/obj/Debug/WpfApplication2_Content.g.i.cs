@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("trucking.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("snd.dll")]
 
 
