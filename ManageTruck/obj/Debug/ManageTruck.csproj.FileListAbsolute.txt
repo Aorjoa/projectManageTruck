@@ -50,3 +50,7 @@ C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\bi
 C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\bin\Debug\WpfApplication2.application
 C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\obj\Debug\WpfApplication2.exe.manifest
 C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\obj\Debug\WpfApplication2.application
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\bin\Debug\Mono.Posix.dll
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\bin\Debug\SharpAdbClient.dll
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\bin\Debug\SharpAdbClient.pdb
+C:\Users\AorJoa\Documents\Visual Studio 2015\Projects\ManageTruck\ManageTruck\bin\Debug\SharpAdbClient.xml

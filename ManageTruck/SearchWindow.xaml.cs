@@ -43,7 +43,7 @@ namespace WpfApplication2
         {
             try
             {
-                object[] selected = ((System.Data.DataRowView)dataGrid.SelectedItem).Row.ItemArray;
+                object[] selected = ((DataRowView)dataGrid.SelectedItem).Row.ItemArray;
                 Report rp = new Report(selected);
                 rp.Show();
             }

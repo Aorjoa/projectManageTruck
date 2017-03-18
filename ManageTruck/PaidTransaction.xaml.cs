@@ -63,7 +63,7 @@ namespace WpfApplication2
         {
             try {
                 if (inputRecordId.Text != "" && recorder != "") {
-                    string sqlAddPaidTransactions = "insert into transactions (recordId,pay,recordDate,recorder) values ('" + inputRecordId.Text + "'," + inputPaidAmont.Text + ",'"+paidDate.Text+"','" +recorder+"')";
+                    string sqlAddPaidTransactions = "insert into transactions (recordId,checkSync,pay,recordDate,recorder) values ('" + inputRecordId.Text + "',1," + inputPaidAmont.Text + ",'"+paidDate.Text+"','" +recorder+"')";
                     SQLiteCommand command = new SQLiteCommand(sqlAddPaidTransactions, dbManager);
                     command.ExecuteNonQuery();
                     MessageBox.Show("เพิ่มรายการชำระเงินเรียบร้อยแล้ว", "สำเร็จ", MessageBoxButton.OK, MessageBoxImage.Information);

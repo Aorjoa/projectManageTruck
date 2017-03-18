@@ -19,6 +19,9 @@ using System.Windows.Shapes;
 using System.Data.SQLite;
 using System.IO;
 using System.Management;
+using SharpAdbClient;
+using System.Data;
+
 namespace WpfApplication2
 {
     /// <summary>
@@ -131,7 +134,7 @@ namespace WpfApplication2
             command = new SQLiteCommand(addFirstRowForTest, dbManager);
             command.ExecuteNonQuery();
             
-            string createTableTransaction = "create table if not exists transactions (recordId text, pay int, recordDate text, recorder text)";
+            string createTableTransaction = "create table if not exists transactions (recordId text, checkSync int, pay int, recordDate text, recorder text)";
             command = new SQLiteCommand(createTableTransaction, dbManager);
             command.ExecuteNonQuery();
             string createTableMember = "create table if not exists members (mbUsername text, mbName text, mbPassword text, unique (mbUsername))";
@@ -160,7 +163,7 @@ namespace WpfApplication2
                 string sqlAddRecord = genInsertSql(new String[] { ctId.Text, ctName.Text, ctPhone.Text, ctAddress.Text, dateOp.Text, hvName.Text, hvArea.Text, hvPriceArea.Text, hvAddress.Text, bhName.Text, bhHours.Text, bhPriceHours.Text, trName.Text, trNum.Text, trPriceNum.Text, ttName.Text, ttNum.Text, ttPriceNum.Text, payPrice.Text, recorder });
                 SQLiteCommand command = new SQLiteCommand(sqlAddRecord, dbManager);
                 command.ExecuteNonQuery();
-                string sqlAddPaidTransactions = "insert into transactions (recordId,pay,recordDate,recorder) select recordId," + paid.ToString() + ",dateOp,'" + recorder + "' from records order by ROWID desc limit 1";
+                string sqlAddPaidTransactions = "insert into transactions (recordId,checkSync,pay,recordDate,recorder) select recordId,1," + paid.ToString() + ",dateOp,'" + recorder + "' from records order by ROWID desc limit 1";
                 command = new SQLiteCommand(sqlAddPaidTransactions, dbManager);
                 command.ExecuteNonQuery();
                 
@@ -269,6 +272,96 @@ namespace WpfApplication2
         {
             PaidTransaction p = new PaidTransaction(dbManager,recorder);
             p.Show();
+        }
+
+        private void syncBtn_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ADBClass adb = new ADBClass();
+                adb.getServer();
+                if (adb.downloadFile() && File.Exists(@"sqlite.db.m"))
+                {
+                    SQLiteConnection dbManagerOnMobile = new SQLiteConnection("Data Source=sqlite.db.m;Version=3;");
+                    dbManagerOnMobile.Open();
+                    syncRecords(dbManagerOnMobile);
+                    syncTransaction(dbManagerOnMobile);
+                    if (adb.uploadFile())
+                    {
+                        //string dirpath = Directory.GetCurrentDirectory();
+                        //File.Copy(dirpath+"\\sqlite.db.m", dirpath+"\\sqlite.db.m.bak",true);
+                        MessageBox.Show("โอนข้อมูลเรียบร้อย", "สำเร็จ", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }else
+                    {
+                        MessageBox.Show("ไม่สามารถอัพโหลดได้", "ผิดพลาด", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
+                }
+            }
+            catch (Exception xe)
+            {
+                MessageBox.Show("พบปัญหาระหว่างโอนถ่ายข้อมูล : " + xe.Message , "ผิดพลาด", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        private void syncTransaction(SQLiteConnection dbManagerOnMobile)
+        {
+            DataSet dataSet = new DataSet();
+            string query = "select * from transactions where checkSync = '0'";
+
+            SQLiteDataAdapter dataAdapter = new SQLiteDataAdapter(query, dbManagerOnMobile);
+            dataAdapter.Fill(dataSet);
+            DataRowCollection rows = dataSet.Tables[0].Rows;
+            int colCount = dataSet.Tables[0].Columns.Count;
+            SQLiteCommand command = new SQLiteCommand("", dbManager);
+            foreach (DataRow row in rows)
+            {
+                String init = "insert into transactions (recordId,checkSync,pay,recordDate,recorder) values (";
+                for (int i = 0; i < colCount; i++)
+                {
+                    if (i == 1)
+                    {
+                        init += "\"1\",";
+                    }
+                    else
+                    {
+                        init += "\"" + row[i] + "\",";
+                    }
+                }
+                init = (init.Remove(init.Length - 1)) + ")";
+                command = new SQLiteCommand(init, dbManager);
+                command.ExecuteNonQuery();
+            }
+        }
+
+        private void syncRecords(SQLiteConnection dbManagerOnMobile)
+        {
+            DataSet dataSet = new DataSet();
+            string query = "select * from records where checkSync = '0'";
+
+            SQLiteDataAdapter dataAdapter = new SQLiteDataAdapter(query, dbManagerOnMobile);
+            dataAdapter.Fill(dataSet);
+            DataRowCollection rows = dataSet.Tables[0].Rows;
+            int colCount = dataSet.Tables[0].Columns.Count;
+            SQLiteCommand command = new SQLiteCommand("", dbManager);
+            foreach (DataRow row in rows)
+            {
+                String init = "insert into records (recordId, checkSync, ctId, ctName, ctPhone, ctAddress, dateOp, hvName, hvArea, hvPriceArea, hvAddress, bhName, bhHours, bhPriceHours, trName, trNum , trPriceNum, ttName, ttNum, ttPriceNum, price, recorder) values (";
+                for (int i = 0; i < colCount; i++)
+                {
+                    if (i == 1)
+                    {
+                        init += "\"1\",";
+                    }
+                    else
+                    {
+                        init += "\"" + row[i] + "\",";
+                    }
+
+                }
+                init = (init.Remove(init.Length - 1)) + ")";
+                command = new SQLiteCommand(init, dbManager);
+                command.ExecuteNonQuery();
+            }
         }
     }
 }
