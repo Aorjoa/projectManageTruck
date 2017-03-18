@@ -129,6 +129,6 @@
                 </Canvas>
             </GroupBox>
         </UserControl>
-        <Button x:Name="syncBtn" Content="โอนข้อมูลกับโทรศัพท์" Canvas.Left="450" Canvas.Top="464" Width="116" Height="57" Panel.ZIndex="18" Click="syncBtn_Click"/>
+        <Button x:Name="syncBtn" Content="โอนข้อมูลกับโทรศัพท์" Canvas.Left="450" Canvas.Top="464" Width="116" Height="57" Panel.ZIndex="18" Click="syncBtn_Click" IsEnabled="False"/>
     </Canvas>
 </Window>
